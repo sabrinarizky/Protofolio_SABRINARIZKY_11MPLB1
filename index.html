@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio - Bintang Cinta Ramadhani</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Font Inter & Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        skyPrimary: '#38bdf8',
+                        skyLight: '#e0f2fe',
+                        skyDeep: '#0284c7',
+                        cloudWhite: '#f8fafc'
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 4s ease-in-out infinite',
+                        'float-slow': 'float 7s ease-in-out infinite',
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styling & Awan Animasi */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #bae6fd 0%, #e0f2fe 50%, #f0f9ff 100%);
+            color: #1e293b;
+            min-height: 100vh;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+        }
+
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        /* SVG Cloud Background Effects */
+        .cloud-bg {
+            position: absolute;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden">
+
+    <div class="cloud-bg top-10 left-5 animate-float-slow text-white">
+        <i class="fa-solid fa-cloud text-8xl text-white/60 drop-shadow-md"></i>
+    </div>
+    <div class="cloud-bg top-1/4 right-10 animate-float text-white">
+        <i class="fa-solid fa-cloud text-9xl text-white/50 drop-shadow-md"></i>
+    </div>
+    <div class="cloud-bg top-2/3 left-12 animate-float-slow text-white">
+        <i class="fa-solid fa-cloud text-8xl text-white/40 drop-shadow-md"></i>
+    </div>
+
+    <nav class="fixed top-0 left-0 w-full z-50 glass-nav transition-all duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-cloud-sun text-sky-500 text-2xl"></i>
+                    <span class="font-bold text-xl text-sky-800 tracking-wide">Bintang<span class="text-sky-500">.</span></span>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#hero" class="text-slate-700 hover:text-sky-600 font-medium transition duration-200">Beranda</a>
+                    <a href="#about" class="text-slate-700 hover:text-sky-600 font-medium transition duration-200">Tentang</a>
+                    <a href="#skills" class="text-slate-700 hover:text-sky-600 font-medium transition duration-200">Keahlian</a>
+                    <a href="#projects" class="text-slate-700 hover:text-sky-600 font-medium transition duration-200">Proyek</a>
+                    <a href="#contact" class="text-slate-700 hover:text-sky-600 font-medium transition duration-200">Kontak</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-700 hover:text-sky-600 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden glass-card border-t border-sky-100 px-4 pt-2 pb-4 space-y-2">
+            <a href="#hero" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-sky-100 hover:text-sky-600 font-medium">Beranda</a>
+            <a href="#about" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-sky-100 hover:text-sky-600 font-medium">Tentang</a>
+            <a href="#skills" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-sky-100 hover:text-sky-600 font-medium">Keahlian</a>
+            <a href="#projects" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-sky-100 hover:text-sky-600 font-medium">Proyek</a>
+            <a href="#contact" class="block px-3 py-2 rounded-md text-slate-700 hover:bg-sky-100 hover:text-sky-600 font-medium">Kontak</a>
+        </div>
+    </nav>
+
+    <main class="relative z-10 pt-16">
+
+        <section id="hero" class="min-h-[90vh] flex items-center justify-center px-4 py-12">
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                
+                <!-- Text Intro -->
+                <div class="space-y-6 text-center md:text-left order-2 md:order-1">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-sky-200/60 text-sky-800 text-sm font-semibold border border-sky-300 shadow-sm">
+                        <i class="fa-solid fa-sun text-amber-400"></i> Selamat Datang
+                    </div>
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold text-slate-800 leading-tight">
+                        Halo, saya <br>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 to-blue-700">Bintang Cinta Ramadhani</span>
+                    </h1>
+                    <p class="text-base sm:text-lg text-slate-600 leading-relaxed glass-card p-4 rounded-2xl shadow-sm">
+                         Halo, selamat datang di website portofolio saya! Website ini dibuat untuk menaruh seluruh project yang saya buat!
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center md:justify-start pt-2">
+                        <a href="#projects" class="px-6 py-3 bg-sky-500 hover:bg-sky-600 text-white font-semibold rounded-xl shadow-lg shadow-sky-500/30 transition duration-300 flex items-center gap-2 transform hover:-translate-y-1">
+                            <i class="fa-solid fa-folder-open"></i> Lihat Project
+                        </a>
+                        <a href="#contact" class="px-6 py-3 bg-white/80 hover:bg-white text-sky-700 font-semibold rounded-xl shadow-md border border-sky-200 transition duration-300 flex items-center gap-2 transform hover:-translate-y-1">
+                            <i class="fa-solid fa-paper-plane"></i> Hubungi Saya
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Photo with Sky Frame -->
+                <div class="flex justify-center order-1 md:order-2">
+                    <div class="relative group">
+                        <!-- Decorative Frame Glowing -->
+                        <div class="absolute -inset-2 bg-gradient-to-r from-sky-400 to-blue-400 rounded-full blur-lg opacity-70 group-hover:opacity-100 transition duration-500 animate-pulse-slow"></div>
+                        
+                        <!-- Photo Frame -->
+                        <div class="relative w-60 h-60 sm:w-72 sm:h-72 rounded-full overflow-hidden border-4 border-white shadow-2xl bg-sky-100">
+                            <!-- High quality photo rendered directly -->
+                            <img src="1000371764_4.jpg" alt="Foto Bintang Cinta Ramadhani" class="w-full h-full object-cover object-center transform transition duration-500 group-hover:scale-105" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600';">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="about" class="py-20 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800">Tentang <span class="text-sky-600">Saya</span></h2>
+                    <div class="w-16 h-1 bg-sky-500 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <div class="glass-card rounded-3xl p-6 sm:p-10 shadow-xl border border-white/60 relative overflow-hidden">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
+                        <div class="text-center md:border-r border-sky-200/80 p-4">
+                            <div class="w-20 h-20 bg-sky-100 text-sky-600 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3 shadow-inner">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="font-bold text-lg text-slate-800">Pendidikan</h3>
+                            <p class="text-sm text-slate-600 mt-1">SMK CYBER MEDIA</p>
+                        </div>
+
+                        <div class="md:col-span-2 space-y-4">
+                            <h3 class="text-2xl font-semibold text-sky-900">Siswa SMK CYBER MEDIA</h3>
+                            <p class="text-slate-700 leading-relaxed">
+                                Saat ini saya merupakan siswa yang sedang menempuh pendidikan di <span class="font-semibold text-sky-700">SMK CYBER MEDIA</span>. Saya mengambil konsentrasi keahlian jurusan <span class="font-semibold text-sky-700">MPLB (Manajemen Perkantoran Dan Layanan Bisnis)</span>.
+                            </p>
+                            <p class="text-slate-600 leading-relaxed text-sm">
+                                Di jurusan MPLB, saya dibekali kemampuan dalam mengelola administrasi perkantoran modern, manajemen kearsipan, otomatisasi tata kelola perkantoran, komunikasi bisnis yang efektif, serta pelayanan prima kepada publik maupun klien.
+                            </p>
+                            
+                            <div class="pt-2 flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-sky-100 text-sky-800 text-xs font-semibold rounded-lg"><i class="fa-solid fa-check text-sky-500 mr-1"></i> MPLB Student</span>
+                                <span class="px-3 py-1 bg-sky-100 text-sky-800 text-xs font-semibold rounded-lg"><i class="fa-solid fa-check text-sky-500 mr-1"></i> Admin & Governance</span>
+                                <span class="px-3 py-1 bg-sky-100 text-sky-800 text-xs font-semibold rounded-lg"><i class="fa-solid fa-check text-sky-500 mr-1"></i> Business Communication</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800">Keahlian <span class="text-sky-600">& Skill</span></h2>
+                    <p class="text-slate-600 mt-2 text-sm">Kemampuan utama yang saya miliki dalam mendukung pekerjaan profesional</p>
+                    <div class="w-16 h-1 bg-sky-500 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    
+                    <!-- Skill 1: Word -->
+                    <div class="glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-white transform hover:-translate-y-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center text-2xl font-bold">
+                                <i class="fa-regular fa-file-word"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Microsoft Word</h3>
+                                <p class="text-xs text-slate-500">Pengolahan Dokumen</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Pembuatan surat resmi, laporan bisnis, penyusunan dokumen administratif, dan format kearsipan.</p>
+                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-blue-500 h-full rounded-full" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 2: Excel -->
+                    <div class="glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-white transform hover:-translate-y-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center text-2xl font-bold">
+                                <i class="fa-regular fa-file-excel"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Microsoft Excel</h3>
+                                <p class="text-xs text-slate-500">Pengolahan Data</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Pengorganisasian data, penggunaan rumus/formula standar, pengolahan tabel, dan kalkulasi bisnis.</p>
+                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-emerald-500 h-full rounded-full" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 3: PowerPoint -->
+                    <div class="glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-white transform hover:-translate-y-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center text-2xl font-bold">
+                                <i class="fa-regular fa-file-powerpoint"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Microsoft PowerPoint</h3>
+                                <p class="text-xs text-slate-500">Presentasi Visual</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Desain slide presentasi yang menarik, komunikatif, dan informatif untuk penyampaian materi perkantoran.</p>
+                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-amber-500 h-full rounded-full" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 4: Bahasa Indonesia -->
+                    <div class="glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-white transform hover:-translate-y-1">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-red-100 text-red-600 flex items-center justify-center text-2xl font-bold">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Komunikasi Bahasa Indonesia</h3>
+                                <p class="text-xs text-slate-500">Komunikasi Lisan & Tulisan</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Kemampuan penyampaian informasi yang formal, sopan, jelas, serta pemahaman tata bahasa bisnis resmi.</p>
+                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-red-500 h-full rounded-full" style="width: 95%;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Skill 5: Bahasa Inggris -->
+                    <div class="glass-card p-6 rounded-2xl shadow-md hover:shadow-xl transition duration-300 border border-white transform hover:-translate-y-1 sm:col-span-2 lg:col-span-2">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 rounded-xl bg-sky-100 text-sky-600 flex items-center justify-center text-2xl font-bold">
+                                <i class="fa-solid fa-language"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-slate-800">Komunikasi Bahasa Inggris</h3>
+                                <p class="text-xs text-slate-500">English Communication Skill</p>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-600 mb-3">Kemampuan dasar hingga intermediat dalam berinteraksi, membaca dokumen resmi, dan berkomunikasi secara global.</p>
+                        <div class="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
+                            <div class="bg-sky-500 h-full rounded-full" style="width: 80%;"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="py-20 px-4">
+            <div class="max-w-5xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-slate-800">Project <span class="text-sky-600">Saya</span></h2>
+                    <p class="text-slate-600 mt-2 text-sm">Berikut adalah beberapa hasil kerja & karya project yang telah dikerjakan</p>
+                    <div class="w-16 h-1 bg-sky-500 mx-auto mt-2 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="glass-card rounded-2xl overflow-hidden shadow-lg border border-white transition duration-300 hover:shadow-2xl flex flex-col">
+                        <div class="h-48 bg-gradient-to-r from-sky-400 to-blue-500 relative flex items-center justify-center overflow-hidden">
+                            <i class="fa-solid fa-file-signature text-8xl text-white/30 transform -rotate-12"></i>
+                            <span class="absolute top-4 right-4 bg-white/90 text-sky-800 text-xs font-bold px-3 py-1 rounded-full shadow">Administrasi</span>
+                        </div>
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+      
